@@ -1,46 +1,55 @@
 import React from "react";
 import BookCard from "../../Components/BookCard";
 import data from "./../../Assets/data/data";
-import styles from "./BookContainer.module.scss";
 
 const BookContainer = () => {
-    const bookCards = data.map((bookCard, index) => {
+    const getDataGoogleBooks = async () => {
+        const url =
+            "https://www.googleapis.com/books/v1/volumes?q={ currentQuery }&maxResults=20";
+        const response = await fetch(url);
+        const json = await response.json();
+
+        let bookInfo = json.items.map((book) => book.volumeInfo);
+        let resultsArray = [];
+
+        bookInfo.map((book) => {
+            const result = {
+                title: book.title,
+                authors: book.authors,
+                description: book.description,
+                image: book.imageLinks.thumbnail,
+            };
+            resultsArray.push(result);
+        });
+        console.log(resultsArray);
+    };
+
+    getDataGoogleBooks();
+
+    const bookCards = data.map((book, index) => {
         return (
+            // <BookCard
+            // key={index}
+            //   thumbnail={thumbnail}
+            //   title={item.volumeInfo.title}
+            //   authors={item.volumeInfo.authors}
+            //   publisher={item.volumeInfo.publisher}
+            //   description={item.volumeInfo.description}
+            // />
+
             <BookCard
                 key={index}
-                thumbnail={bookCard.thumbnail}
-                title={bookCard.title}
-                authors={bookCard.authors}
-                description={bookCard.description}
-
-                // thumbnail={thumbnail}
-                // title={item.volumeInfo.title}
-                // authors={item.volumeInfo.authors}
-                // description={item.volumeInfo.description}
+                thumbnail={book.thumbnail}
+                title={book.title}
+                authors={book.authors}
+                description={book.description}
             />
         );
     });
 
     return (
         <>
-            <div className={styles["menu-container"]}>
-                {bookCards}
-                {/* <BookCard
-                    title={data[0].title}
-                    description={data[0].description}
-                    authors={data[0].description}
-                />
-                <BookCard
-                    title={data[1].title}
-                    description={data[1].description}
-                    authors={data[1].description}
-                />
-                <BookCard
-                    title={data[2].title}
-                    description={data[2].description}
-                    authors={data[2].description}
-                /> */}
-            </div>
+            <div>{bookCards}</div>
         </>
     );
 };
