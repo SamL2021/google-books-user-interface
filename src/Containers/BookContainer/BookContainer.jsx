@@ -14,6 +14,7 @@ const BookContainer = ({ results }) => {
                 title={book.title}
                 authors={book.authors}
                 description={book.description}
+                preview={book.preview}
             />
         );
     });

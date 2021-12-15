@@ -1,7 +1,7 @@
-const getDataGoogleBooks = async (callback, query) => {
-    // const url = "https://www.googleapis.com/books/v1/volumes?q=harry%20potter";
+const getDataGoogleBooks = async (currentQuery, callback) => {
+    // const url = "https://www.googleapis.com/books/v1/volumes?q=travel";
 
-    const url = `https://www.googleapis.com/books/v1/volumes?q=${query}`;
+    const url = `https://www.googleapis.com/books/v1/volumes?q=${currentQuery}`;
     const response = await fetch(url);
     //process response data into json
     const json = await response.json();
@@ -18,7 +18,9 @@ const getDataGoogleBooks = async (callback, query) => {
             authors: book.authors,
             description: book.description,
             image: book.imageLinks.thumbnail,
+            preview: book.previewLink,
         };
+        console.log(result);
 
         //  {
         //      /* { if (thumbnail = "" {
@@ -37,7 +39,5 @@ const getDataGoogleBooks = async (callback, query) => {
     });
     callback(results);
 };
-
-// getDataGoogleBooks();
 
 export default getDataGoogleBooks;
