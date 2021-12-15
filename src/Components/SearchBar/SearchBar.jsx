@@ -7,12 +7,8 @@ const SearchBar = ({ query, resultsCallback }) => {
     const [currentQuery, setCurrentQuery] = useState("");
 
     console.log("input: " + currentQuery);
-    // console.log("query" + query);
 
     const handleInput = (e) => setCurrentQuery(e.target.value);
-    // const handleClick = () => {
-    //     // getDataGoogleBooks();
-    // };
 
     return (
         <div className={styles["wrap"]}>

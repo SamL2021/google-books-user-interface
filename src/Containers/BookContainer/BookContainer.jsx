@@ -1,19 +1,19 @@
 import React from "react";
 import BookCard from "../../Components/BookCard";
 import getDataGoogleBooks from "../../Assets/data/googleData";
-import data from "../../Assets/data/data";
+// import data from "../../Assets/data/data";
 
 const BookContainer = ({ results }) => {
     const bookCards = results.map((book, index) => {
-        console.log(results);
-        // const bookCards = data.map((index) => {
+        //     console.log(results);
+        // const bookCards = data.map((book, index) => {
         return (
             <BookCard
                 key={index}
-                // thumbnail={book.index.thumbnail}
-                // title={book.index.title}
-                // authors={book.index.authors}
-                // description={book.index.description}
+                thumbnail={book.image}
+                title={book.title}
+                authors={book.authors}
+                description={book.description}
             />
         );
     });

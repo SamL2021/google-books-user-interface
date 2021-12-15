@@ -1,9 +1,7 @@
 const getDataGoogleBooks = async (callback, query) => {
-    const url = "https://www.googleapis.com/books/v1/volumes?q=harry%20potter";
+    // const url = "https://www.googleapis.com/books/v1/volumes?q=harry%20potter";
 
-    // const getDataGoogleBooks = async (query) => {
-    // const url = `https://www.googleapis.com/books/v1/volumes?q=${query}`;
-    //Fetch response data from url
+    const url = `https://www.googleapis.com/books/v1/volumes?q=${query}`;
     const response = await fetch(url);
     //process response data into json
     const json = await response.json();
@@ -21,6 +19,20 @@ const getDataGoogleBooks = async (callback, query) => {
             description: book.description,
             image: book.imageLinks.thumbnail,
         };
+
+        //  {
+        //      /* { if (thumbnail = "" {
+        //     <img
+        //         src="../../../src/Assets/css/img/thumbnail-404.png"
+        //         alt="404"
+        //     />
+        // } else {  */
+        //  }
+
+        //  let thumbnail = "";
+        //  if (item.volumeInfo.imageLinks) {
+        //      thumbnail = item.volumeInfo.imageLinks.thumbnail;
+        //  }
         return result;
     });
     callback(results);
