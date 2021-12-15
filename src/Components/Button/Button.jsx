@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./Button.module.scss";
 
-// Button Label
-// Button callback <- on click handler
+// Button Label = search
+// Button callback <- handleClick
 
-const Button = ({ clickHandler, label }) => {
+const Button = ({ handleClick, label }) => {
     return (
         <>
-            <button className={styles["searchButton"]} onClick={clickHandler}>
+            <button className={styles["searchButton"]} onClick={handleClick}>
                 {label}
             </button>
         </>
