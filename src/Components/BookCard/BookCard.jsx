@@ -1,6 +1,6 @@
 import styles from "./BookCard.module.scss";
 
-// This file is the actual component which can be used as a template and passed props
+// This file is the component which can be used as a template and passed props
 
 const BookCard = ({ thumbnail, authors, title, description, preview }) => {
     return (

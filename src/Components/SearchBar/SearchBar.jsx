@@ -8,7 +8,7 @@ const SearchBar = ({ resultsCallback }) => {
 
     // created a state named 'currentQuery' which saves the data from the search input on every occurance of the change event.
 
-    console.log("input: " + currentQuery);
+    // console.log("input: " + currentQuery);
 
     const handleChange = (e) => setCurrentQuery(e.target.value);
 

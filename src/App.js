@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import SearchBar from "./Components/SearchBar/SearchBar";
